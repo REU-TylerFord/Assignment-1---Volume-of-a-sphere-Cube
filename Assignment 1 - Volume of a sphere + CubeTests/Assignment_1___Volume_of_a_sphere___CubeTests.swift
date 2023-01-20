@@ -7,29 +7,57 @@
 
 import XCTest
 
+
+
+
+
 final class Assignment_1___Volume_of_a_sphere___CubeTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testRadius() throws {
+        
+        let sphere: Sphere = Sphere(Radius_New: 2.0)
+        XCTAssertEqual(sphere.Radius, 2.0, "The Constructed sphere failed to have the given radius which it should have for positive numbers")
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testSideLength() throws {
+        let cube: Cube = Cube(Side_Length_New: 2.0)
+        XCTAssertEqual(cube.Side_Length, 2.0, "The Constructed cube failed to have the given sidelength which it should have for positive numbers")
     }
-
+    
+    func testSphereVolume() throws {
+        let sphere: Sphere = Sphere(Radius_New: 2.0)
+        let SphereVolume = sphere.Volume()
+        let Expected =  (32/3) * Double.pi
+        XCTAssertEqual(SphereVolume, Expected, accuracy: 1e-14)
+    }
+    
+    func testCubeVolume() throws {
+        let cube: Cube = Cube(Side_Length_New: 2.0)
+        let CubeVolume = cube.Volume()
+        let Expected2 =  8
+        XCTAssertEqual(CubeVolume, Double(Expected2), accuracy: 1e-14)
+    }
+    
+    func testSphereSurfaceArea() throws {
+        let sphere: Sphere = Sphere(Radius_New: 2.0)
+        let SphereSurfaceArea = sphere.SurfaceArea()
+        let Expected3 =  16 * Double.pi
+        XCTAssertEqual(SphereSurfaceArea, Double(Expected3), accuracy: 1e-14)
+    }
+    
+    
+    func testCubeSurfaceArea() throws {
+        let cube: Cube = Cube(Side_Length_New: 2.0)
+        let CubeSurfaceArea = cube.SurfaceArea()
+        let Expected4 =  24
+        XCTAssertEqual(CubeSurfaceArea, Double(Expected4), accuracy: 1e-14)
+    }
+        
 }
+ 
+        
+    
+    
